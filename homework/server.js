@@ -22,7 +22,23 @@ app.get('/greeting/:name', (req, res) => {
     res.send(`<h1>Hello ${name}...what are ya buying?</h1>`)
 })
 
+// ===============
+// Tip Calculator //
+// ===============
 
+// 
+app.get('/tip/:total/:tipPercentage', (req, res) => {
+    // assign consts to :total and :tipPercentage
+    const total = req.params.total; 
+    const tipPercent = req.params.tipPercentage;
+    const tip = total * (tipPercent/100)
+    
+    res.send(`<h1>${tip}</h1>`)
+
+})
+
+// ===============
+// 
 
 // default port 3000
 app.listen(3000, () => {
